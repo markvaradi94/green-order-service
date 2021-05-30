@@ -21,32 +21,32 @@ public class OrderController {
         return orderService.getAll();
     }
 
-    @GetMapping("/{orderId}")
+    @GetMapping("{orderId}")
     public OrderDto getByOrderId(@PathVariable String orderId) {
         return orderService.getByOrderId(orderId);
     }
 
-    @GetMapping("/{clientId}")
+    @GetMapping("{clientId}")
     public List<OrderDto> getByClientId(@PathVariable String clientId) {
         return orderService.getByClientId(clientId);
     }
 
-    @GetMapping("/{providerId}")
+    @GetMapping("{providerId}")
     public List<OrderDto> getByProviderId(@PathVariable String providerId) {
         return orderService.getByProviderId(providerId);
     }
 
-    @GetMapping("/{orderId}/status")
+    @GetMapping("{orderId}/status")
     public String getOrderStatus(@PathVariable String orderId) {
         return orderService.getOrderStatusByOrderId(orderId);
     }
 
-    @GetMapping("/{orderId}/bags")
+    @GetMapping("{orderId}/bags")
     public List<GreenBagDto> getOrderBags(@PathVariable String orderId) {
         return orderService.getBagsByOrderId(orderId);
     }
 
-    @GetMapping("/status")
+    @GetMapping("status")
     public List<OrderDto> getOrdersByStatus(@RequestParam OrderStatus status) {
         return orderService.getOrdersByStatus(status);
     }
@@ -56,12 +56,12 @@ public class OrderController {
         return orderService.addOrder(dto);
     }
 
-    @PutMapping("/{orderId}")
+    @PutMapping("{orderId}")
     public OrderDto updateOrder(@PathVariable String orderId, @RequestBody OrderDto dto) {
         return orderService.updateOrder(orderId, dto);
     }
 
-    @DeleteMapping("/{orderId}")
+    @DeleteMapping("{orderId}")
     public OrderDto deleteOrder(@PathVariable String orderId) {
         return orderService.deleteOrder(orderId);
     }

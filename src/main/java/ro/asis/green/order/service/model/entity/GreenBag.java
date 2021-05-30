@@ -1,18 +1,18 @@
 package ro.asis.green.order.service.model.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ro.asis.green.order.service.model.dto.GreenBagDto;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
 @Data
-@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class GreenBag {

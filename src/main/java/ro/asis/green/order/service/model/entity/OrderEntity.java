@@ -1,6 +1,7 @@
 package ro.asis.green.order.service.model.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,7 +16,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Data
-@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "orders")
@@ -33,7 +34,6 @@ public class OrderEntity {
     @NotNull
     private OrderStatus status;
 
-    @OneToMany
     private List<GreenBag> bags;
 
     public static OrderEntity create(OrderDto dto) {
