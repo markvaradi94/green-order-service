@@ -4,12 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ro.asis.green.order.service.model.dto.GreenBagDto;
 
 import javax.persistence.Id;
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Data
 @Builder
@@ -25,20 +21,5 @@ public class GreenBag {
     private Double price;
 
     private String imageUrl;
-
-    public GreenBagDto toGreenBagDto() {
-        GreenBagDto dto = new GreenBagDto();
-        dto.setId(id);
-        dto.setDescription(description);
-        dto.setPrice(price);
-        dto.setImageUrl(imageUrl);
-        return dto;
-    }
-
-    public static List<GreenBagDto> toGreenBagDtos(List<GreenBag> bags) {
-        return bags.stream()
-                .map(GreenBag::toGreenBagDto)
-                .collect(toList());
-    }
 
 }
